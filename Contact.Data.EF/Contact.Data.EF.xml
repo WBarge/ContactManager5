@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contact.Data.EF</name>
+    </assembly>
+    <members>
+        <member name="T:Contact.Data.EF.ConcretePocos.MtmPhone">
+            <summary>
+            Class MtmPhone.
+            </summary>
+        </member>
+        <member name="P:Contact.Data.EF.ConcretePocos.MtmPhone.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Data.EF.ConcretePocos.MtmPhone.Person">
+            <summary>
+            Gets or sets the person.
+            </summary>
+            <value>The person.</value>
+        </member>
+        <member name="P:Contact.Data.EF.ConcretePocos.MtmPhone.PhoneId">
+            <summary>
+            Gets or sets the phone identifier.
+            </summary>
+            <value>The phone identifier.</value>
+        </member>
+        <member name="P:Contact.Data.EF.ConcretePocos.MtmPhone.Phone">
+            <summary>
+            Gets or sets the phone.
+            </summary>
+            <value>The phone.</value>
+        </member>
+        <member name="P:Contact.Data.EF.ConcretePocos.MtmPhone.DefaultNumber">
+            <summary>
+            Gets or sets a value indicating whether [default number].
+            </summary>
+            <value><c>true</c> if [default number]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1">
+            <summary>
+            Class BaseEfRepo.
+            This class is responsible for implementing base crud operations
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.DbContext">
+            <summary>
+            Gets the database context.
+            </summary>
+            <value>The database context.</value>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.#ctor(Contact.Data.EF.ContactDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1"/> class.
+            </summary>
+            <param name="dbContext">The database context.</param>
+            <exception cref="T:System.ArgumentNullException">dbContext</exception>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.GetAllRecordsAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            get all records as an asynchronous operation.
+            </summary>
+            <param name="maxRecordCount">The maximum record count.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>List&lt;T&gt;.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.GetAllRecordsPagedAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            get all records paged as an asynchronous operation.
+            </summary>
+            <param name="pageNumber">The page number.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>List&lt;T&gt;.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.FindByConditionAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Threading.CancellationToken)">
+            <summary>
+            find by condition as an asynchronous operation.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>List&lt;T&gt;.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns>T.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.InsertAsync(`0)">
+            <summary>
+            insert as an asynchronous operation.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.Update(`0)">
+            <summary>
+            Updates the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.Delete(`0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.BaseEfRepo`1.SaveAsync(System.Threading.CancellationToken)">
+            <summary>
+            save as an asynchronous operation.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="T:Contact.Data.EF.ConcreteRepos.PersonRepo">
+            <summary>
+            Class PersonRepo.
+            Implements the <see cref="!:Contact.Data.EF.ConcreteRepos.BaseEfRepo&lt;Contact.Data.EF.ConcretePocos.Person&gt;" />
+            Implements the <see cref="T:Contact.Glue.Interfaces.Repos.IPersonRepo" />
+            </summary>
+            <seealso cref="!:Contact.Data.EF.ConcreteRepos.BaseEfRepo&lt;Contact.Data.EF.ConcretePocos.Person&gt;" />
+            <seealso cref="T:Contact.Glue.Interfaces.Repos.IPersonRepo" />
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.#ctor(Contact.Data.EF.ContactDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Data.EF.ConcreteRepos.PersonRepo"/> class.
+            </summary>
+            <param name="dbContext">The database context.</param>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.GetAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            get all as an asynchronous operation.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>IEnumerable&lt;IPerson&gt;.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.GetPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            get person as an asynchronous operation.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The token.</param>
+            <returns>System.Nullable&lt;IPerson&gt;.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.InsertAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            insert as an asynchronous operation.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Guid.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.UpdateAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            update as an asynchronous operation.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.DeleteAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            delete as an asynchronous operation.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.SetDefaultPhoneNumberAsync(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            set default phone number as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="phoneNumberId">The phone number identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Contact.Data.EF.ConcreteRepos.PersonRepo.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns>IPerson.</returns>
+        </member>
+        <member name="T:Contact.Data.EF.DBSchemaHelp.DBSchemaExtension">
+            <summary>
+            Class DBSchemaExtension.
+            </summary>
+        </member>
+        <member name="M:Contact.Data.EF.DBSchemaHelp.DBSchemaExtension.HandleDBSchema(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Handles the database schema creation and migrations.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+    </members>
+</doc>

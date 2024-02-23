@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contact.Business</name>
+    </assembly>
+    <members>
+        <member name="T:Contact.Business.PeopleService">
+            <summary>
+            Class PeopleService.
+            Implements the <see cref="T:Contact.Glue.Interfaces.Services.IPeopleService" />
+            </summary>
+            <seealso cref="T:Contact.Glue.Interfaces.Services.IPeopleService" />
+        </member>
+        <member name="F:Contact.Business.PeopleService._personRepo">
+            <summary>
+            The person repo
+            </summary>
+        </member>
+        <member name="M:Contact.Business.PeopleService.#ctor(Contact.Glue.Interfaces.Repos.IPersonRepo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Business.PeopleService"/> class.
+            </summary>
+            <param name="personRepo">The person repo.</param>
+            <exception cref="T:System.ArgumentNullException">personRepo</exception>
+        </member>
+        <member name="M:Contact.Business.PeopleService.GetAllPeopleAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all people asynchronous.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;IPerson&gt;&gt;.</returns>
+        </member>
+        <member name="T:Contact.Business.PersonalEmailService">
+            <summary>
+            Class PersonalEmailService.
+            Responsible for dealing with email for a person
+            Implements the <see cref="T:Contact.Glue.Interfaces.Services.IPersonalEmailService" />
+            </summary>
+            <seealso cref="T:Contact.Glue.Interfaces.Services.IPersonalEmailService" />
+        </member>
+        <member name="F:Contact.Business.PersonalEmailService._personalEmailRepo">
+            <summary>
+            The personal email repo
+            </summary>
+        </member>
+        <member name="M:Contact.Business.PersonalEmailService.#ctor(Contact.Glue.Interfaces.Repos.IPersonalEmailRepo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Business.PersonalEmailService" /> class.
+            </summary>
+            <param name="personalEmailRepo">The personal email repo.</param>
+            <exception cref="T:System.ArgumentNullException">personalEmailRepo</exception>
+        </member>
+        <member name="M:Contact.Business.PersonalEmailService.GetEmailsForAPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the emails for a person.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;IEmail&gt;&gt;.</returns>
+        </member>
+        <member name="M:Contact.Business.PersonalEmailService.AddAddressToAPersonAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Adds the address to a person.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="address">The address.</param>
+            <param name="token">The token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Contact.Business.PersonService">
+            <summary>
+            Class PersonService.
+            The responsibility of this class to handle simple operation on a person
+            </summary>
+        </member>
+        <member name="F:Contact.Business.PersonService._personRepo">
+            <summary>
+            The person repo
+            </summary>
+        </member>
+        <member name="M:Contact.Business.PersonService.#ctor(Contact.Glue.Interfaces.Repos.IPersonRepo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Business.PersonService"/> class.
+            </summary>
+            <param name="personRepo">The person repo.</param>
+            <exception cref="T:System.ArgumentNullException">personRepo</exception>
+        </member>
+        <member name="M:Contact.Business.PersonService.GetAPerson(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets a person.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IPerson&gt;.</returns>
+        </member>
+        <member name="M:Contact.Business.PersonService.UpSertAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            updates or insert a person as an asynchronous operation.
+            IF the id is empty then it will insert else it will update
+            </summary>
+            <param name="person">The person.</param>
+            <param name="token">The token.</param>
+            <returns>Guid.</returns>
+        </member>
+        <member name="M:Contact.Business.PersonService.DeleteAPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            delete a person as an asynchronous operation.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The token.</param>
+        </member>
+    </members>
+</doc>

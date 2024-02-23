@@ -1,0 +1,57 @@
+<p-toast position="top-center" [life]="2000"></p-toast>
+<p-table id="peopleTable" #peopleTable [value]="personData" [rows]="10" [paginator]="true" [autoLayout]="true">
+  <ng-template pTemplate="header">
+    <tr>
+        <th colspan="2">
+           <button type="button" pButton label="Add" (click)="clickShowNewPersonDialogButton()" label="Add"></button>
+        </th>
+        <th colspan="2" class="mainHeader" >Contacts</th>
+    </tr>
+    <tr>
+        <th colspan="2"></th>
+        <th>
+          <p-columnFilter type="text" field="firstName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="lastName"></p-columnFilter>
+        </th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-person>
+    <tr>
+        <td class="buttonCol">
+            <button type="button" pButton (click)="clickShowDetailDialogButton(person)" icon="pi pi-user-edit"></button>
+        </td>
+        <td>
+            <button type="button" pButton (click)="clickShowPersonAdditionalInformationDialogButton(person)" icon="pi pi-eye"></button>
+        </td>
+        <td>{{person.firstName}}</td>
+        <td>{{person.lastName}}</td>
+    </tr>
+</ng-template>
+</p-table>
+
+<p-dialog header="Person Details" [(visible)]="showPersonDetailDialog" [modal]="true" width="800" [closable]="false">
+  <app-person [PersonData]="selectedPerson"></app-person>
+  <p-footer>
+      <button type="button" pButton (click)="clickSavePersonDetailDialogButton()" label="Save"></button>
+      <button type="button" pButton (click)="clickClosePersonDetailDialogButton()" label="Close"></button>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="Create New Person" [(visible)]="showNewPersonDialog" [modal]="true" [closable]="true" width="800">
+  <app-person [PersonData]="newPerson"></app-person>
+  <p-footer>
+      <button type="button" pButton (click)="clickCreateNewPersonDialogButton()" label="Create"></button>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="{{selectedPerson != null?selectedPerson.formattedName+ '\'s Contact Information':'Contact Information'}}" [(visible)]="showContactDetailsDialog" [modal]="true" [closable]="false">
+  <app-contact-details [PersonData]="selectedPerson" ></app-contact-details>
+  <p-footer>
+      <button type="button" pButton (click)="clickCloseContactDetailsDialogButton()" label="Close"></button>
+  </p-footer>
+</p-dialog>
+
+
+

@@ -1,0 +1,827 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contact.Glue</name>
+    </assembly>
+    <members>
+        <member name="T:Contact.Glue.Exceptions.BaseException">
+            <summary>
+            Class BaseException.
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="M:Contact.Glue.Exceptions.BaseException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.BaseException" /> class.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.BaseException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.BaseException" /> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.BaseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.BaseException" /> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.BaseException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.BaseException" /> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Contact.Glue.Exceptions.RequestException">
+            <summary>
+            Class RequestException.
+            Implements the <see cref="T:Contact.Glue.Exceptions.BaseException" />
+            </summary>
+            <seealso cref="T:Contact.Glue.Exceptions.BaseException" />
+            <seealso cref="T:Contact.Glue.Exceptions.BaseException" />
+        </member>
+        <member name="M:Contact.Glue.Exceptions.RequestException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.RequestException" /> class.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.RequestException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.RequestException" /> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.RequestException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.RequestException" /> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="T:Contact.Glue.Exceptions.RequiredObjectException">
+            <summary>
+            Class RequiredObjectException.
+            Implements the <see cref="T:Contact.Glue.Exceptions.BaseException" />
+            </summary>
+            <seealso cref="T:Contact.Glue.Exceptions.BaseException" />
+        </member>
+        <member name="M:Contact.Glue.Exceptions.RequiredObjectException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.RequiredObjectException"/> class.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.RequiredObjectException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.RequiredObjectException"/> class.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:Contact.Glue.Exceptions.RequiredObjectException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Glue.Exceptions.RequiredObjectException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="inner">The inner.</param>
+        </member>
+        <member name="T:Contact.Glue.Extensions.ByteExtensions">
+            <summary>
+            Class ByteExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ByteExtensions.FromArrayToString(System.Byte[])">
+            <summary>
+            converts the byte array to a string
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.CollectionExtensions">
+            <summary>
+            Class CollectionExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.CollectionExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determines whether the specified object is empty.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <returns><c>true</c> if the specified object is empty; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.CollectionExtensions.IsNotEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determines whether [is not empty] [the specified object].
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <returns><c>true</c> if [is not empty] [the specified object]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.DateTimeExtensions">
+            <summary>
+            Class DateTimeExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.DateTimeExtensions.IsEmpty(System.DateTime)">
+            <summary>
+            Checks if the input datetime is empty.
+            </summary>
+            <param name="obj">datetime to be checked.</param>
+            <returns>true if the obj is null or == DateTime.MinValue or == DateTime.MaxValue, else false.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.DateTimeExtensions.IsNotEmpty(System.DateTime)">
+            <summary>
+            Checks if the input System.DateTime is not empty.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>true if the System.DateTime is not empty.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.DateTimeExtensions.IsEmpty(System.Nullable{System.DateTime})">
+            <summary>
+            Determines whether the specified object is empty.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns><c>true</c> if the specified object is empty; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.DateTimeExtensions.IsNotEmpty(System.Nullable{System.DateTime})">
+            <summary>
+            Determines whether [is not empty] [the specified object].
+            </summary>
+            <param name="obj">The object.</param>
+            <returns><c>true</c> if [is not empty] [the specified object]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.DateTimeExtensions.ToDateTime(System.Nullable{System.DateTime},System.DateTime)">
+            <summary>
+            Converts nullable datetime to a datetime
+            </summary>
+            <param name="dt">the nullable datetime</param>
+            <param name="defaultTime">The default datetime to use if dt is null</param>
+            <returns>If nullable datetime is null then DateTime.Min else the value passed in</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.DateTimeExtensions.ToDateTime(System.Nullable{System.DateTime})">
+            <summary>
+            To the date time.
+            </summary>
+            <param name="dt">The dt.</param>
+            <returns>DateTime.</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.EnumExtensions">
+            <summary>
+            Class EnumExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.EnumExtensions.ToInt(System.Enum)">
+            <summary>
+            Convert the enum to an integer value
+            </summary>
+            <param name="theEnum">The enum.</param>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.EnumExtensions.ToIntString(System.Enum)">
+            <summary>
+            Convert the enum to its integer value and return the integer value as a string
+            </summary>
+            <param name="theEnum">The enum.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.EnumExtensions.ToSpacedString(System.Enum)">
+            <summary>
+            Convert the enum to a string with a space before each capital letter in the enum
+            </summary>
+            <param name="theEnum">The enum.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.EnumExtensions.GetValues``1(System.Enum)">
+            <summary>
+            Gets the values of the enum.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="theEnum">The enum.</param>
+            <returns>IEnumerable&lt;T&gt;.</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.FormattingExtensions">
+            <summary>
+            Class FormattingExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.FormattingExtensions.Formatted(System.Nullable{System.DateTime})">
+            <summary>
+            Formats the specified datetime.
+            </summary>
+            <param name="dt">The dt.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.FormattingExtensions.Formatted(System.Nullable{System.Boolean})">
+            <summary>
+            Formats the specified boolean.
+            </summary>
+            <param name="b">if set to <c>true</c> [b].</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.FormattingExtensions.Formatted(System.Nullable{System.Int32})">
+            <summary>
+            Formats the specified integer.
+            </summary>
+            <param name="i">The integer to format.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.FormattingExtensions.Formatted(System.Nullable{System.Decimal})">
+            <summary>
+            Formats the specified decimal.
+            </summary>
+            <param name="d">The decimal to format.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.FormattingExtensions.Formatted(System.Nullable{System.Int16})">
+            <summary>
+            Formats the specified short.
+            </summary>
+            <param name="s">The short to format.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.GuidExtensions">
+            <summary>
+            Class GuidExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.GuidExtensions.IsEmpty(System.Guid)">
+            <summary>
+            Checks is the input Guid is empty
+            </summary>
+            <param name="g">guid to be checked</param>
+            <returns>true if the g is null or == Guid.Empty</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.GuidExtensions.IsNotEmpty(System.Guid)">
+            <summary>
+            Checks if the input System.DateTime is not empty.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>true if the Guid is not empty.</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.ObjectExtensions">
+            <summary>
+            Class ObjectExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.ToInt(System.Object)">
+            <summary>
+            Convert an object to integer.
+            </summary>
+            <param name="o">Object to be converted.</param>
+            <returns>Integer value of the object or DefaultValues.DEFAULT_INT if object is not a valid int</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.ToInt(System.Object,System.Int32)">
+            <summary>
+            Convert an object to integer.
+            </summary>
+            <param name="o">Object to be converted.</param>
+            <param name="defaultValue">the value if object is not a valid int</param>
+            <returns>Integer value of the object or defaultValue</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.ToDecimal(System.Object)">
+            <summary>
+            Convert an object to decimal.  Returns 0 if the type conversion fails.
+            </summary>
+            <param name="o">Object to be converted.</param>
+            <returns>decimal value of the object or DefaultValues.DEFAULT_DECIMAL if o is not a valid decimal</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.ToDecimal(System.Object,System.Decimal)">
+            <summary>
+            Convert an object to a decimal.
+            </summary>
+            <param name="o">Object to be converted.</param>
+            <param name="defaultValue">Value to be returned if object is not a valid decimal</param>
+            <returns>Decimal value of the object.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.IsEmpty(System.Object)">
+            <summary>
+            Checks if the input variable is null or empty.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>true if the object is null else false.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.IsNotEmpty(System.Object)">
+            <summary>
+            Checks if the input variable is not empty.
+            </summary>
+            <param name="o">Object to be checked.</param>
+            <returns>true if the object is not empty, else false.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.IsInt(System.Object,System.Boolean)">
+            <summary>
+            Checks if the input variable is an integer.  Caller can ask this function to treat a null or empty
+            value as a valid integer.
+            </summary>
+            <param name="o">Object to be checked</param>
+            <param name="allowNull">true if null or empty value is to be treated as a valid integer.</param>
+            <returns>true if the object is a valid integer.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.IsInt(System.Object)">
+            <summary>
+            Checks if the input variable is an integer.  Null or empty value is not considered a valid integer.
+            </summary>
+            <param name="o">Object to be checked</param>
+            <returns>true if the object is a valid integer.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.IsPositiveInt(System.Object,System.Boolean)">
+            <summary>
+            Checks if the input variable is a positive integer.  Zero is a valid positive integer.
+            Caller can ask this function to treat a null or empty value as a valid positive integer.
+            </summary>
+            <param name="o">Object to be checked</param>
+            <param name="allowNull">true if null or empty value is to be treated as a valid positive integer.</param>
+            <returns>true if the object is a valid positive integer.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.IsPositiveInt(System.Object)">
+            <summary>
+            Checks if the input variable is an integer.  Null or empty value is not considered a valid integer.
+            </summary>
+            <param name="o">Object to be checked</param>
+            <returns>true if the object is a valid integer.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.ObjectExtensions.Required(System.Object,System.String)">
+            <summary>
+            Checks the object it ensure it is not null.  If so an exceptions is thrown
+            
+            </summary>
+            <param name="o">The object to check</param>
+            <param name="name">When set, it will cause the message in the exception to {name} is required</param>
+            <exception cref="T:Contact.Glue.Exceptions.RequiredObjectException"></exception>
+        </member>
+        <member name="T:Contact.Glue.Extensions.StringExtensions">
+            <summary>
+            Class StringExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.ToEnum``1(System.String,``0)">
+            <summary>
+            Convert the string to an enum
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="str">The string to convert.</param>
+            <param name="defaultValue">The default value to set the enum to if the string can not be converted.</param>
+            <returns>The converted value or the default value if conversion fails</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.ToDateTime(System.String,System.DateTime)">
+            <summary>
+            To the date time.
+            </summary>
+            <param name="str">The date as a string.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>The converted value of the default value if conversion fails</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.IsEmpty(System.String)">
+            <summary>
+            Determines whether the specified string is null or empty.
+            </summary>
+            <param name="s">The string to examine.</param>
+            <returns><c>true</c> if the specified string is empty or null; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.IsNotEmpty(System.String)">
+            <summary>
+            Checks if the input string is not empty.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>true if the string is not empty, else false.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.IsNumeric(System.String)">
+            <summary>
+            Method to check for all decimal digits in a string
+            </summary>
+            <param name="number">the string to check</param>
+            <returns>true - the string is all numbers
+            false - the string is not all numbers</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.IsValidEmail(System.String)">
+            <summary>
+            Method that verifies the email format is correct
+            </summary>
+            <param name="email">email address to check</param>
+            <returns>true - the email is in a valid format
+            false - the email is not a valid email format</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.IsNotValidEmail(System.String)">
+            <summary>
+            Method to see if the email address is not in the correct format
+            </summary>
+            <param name="email">email address to check</param>
+            <returns>true - the email is not a valid email format
+            false - the email is in a valid format</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.In(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Looks for the string in the specified list
+            </summary>
+            <param name="stringToFind">The string to find.</param>
+            <param name="listToSearch">The list to search.</param>
+            <returns><c>true</c> if string was found, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.StringExtensions.ToByteArray(System.String)">
+            <summary>
+            Converts a string into a byte array using unicode encoding
+            </summary>
+            <param name="stringToEncode">The string to encode.</param>
+            <returns>System.Byte[].</returns>
+        </member>
+        <member name="T:Contact.Glue.Extensions.XmlNodeExtensions">
+            <summary>
+            Class XmlNodeExtensions.
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeValue(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets the XML node value.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeInteger(System.Xml.XmlNode,System.String,System.Int32)">
+            <summary>
+            Gets the XML node integer.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeString(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets the XML node string.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeDecimal(System.Xml.XmlNode,System.String,System.Decimal)">
+            <summary>
+            Gets the XML node decimal.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>System.Decimal.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeDateTime(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets the XML node date time.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <returns>DateTime.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeBoolean(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets the XML node boolean.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.GetXmlNodeSingle(System.Xml.XmlNode,System.String,System.Single)">
+            <summary>
+            Gets the XML node single.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>System.Single.</returns>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.AddXmlNode(System.Xml.XmlNode,System.String,System.String,System.Boolean)">
+            <summary>
+            Adds the XML node.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="nodeValue">The node value.</param>
+            <param name="addEmpty">if set to <c>true</c> [add empty].</param>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.AddXmlNode(System.Xml.XmlNode,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Adds the XML node.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="nodeValue">The node value.</param>
+            <param name="addZero">if set to <c>true</c> [add zero].</param>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.AddXmlNode(System.Xml.XmlNode,System.String,System.Decimal,System.Boolean)">
+            <summary>
+            Adds the XML node.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="nodeValue">The node value.</param>
+            <param name="addZero">if set to <c>true</c> [add zero].</param>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.AddXmlNode(System.Xml.XmlNode,System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Adds the XML node.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="nodeValue">The node value.</param>
+            <param name="dateOnly">if set to <c>true</c> [date only].</param>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.AddXmlNode(System.Xml.XmlNode,System.String,System.Boolean)">
+            <summary>
+            Adds the XML node.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="nodeValue">if set to <c>true</c> [node value].</param>
+        </member>
+        <member name="M:Contact.Glue.Extensions.XmlNodeExtensions.AddXmlNode(System.Xml.XmlNode,System.String,System.Single,System.Boolean)">
+            <summary>
+            Adds the XML node.
+            </summary>
+            <param name="parentNode">The parent node.</param>
+            <param name="nodeName">Name of the node.</param>
+            <param name="nodeValue">The node value.</param>
+            <param name="addZero">if set to <c>true</c> [add zero].</param>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.DTOs.IEmail">
+            <summary>
+            Represents a Email.
+            NOTE: This interface is generated from a T4 template - you should not modify it manually.
+            </summary>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IEmail.EmailId">
+            <summary>
+            Gets or sets the email identifier.
+            </summary>
+            <value>The email identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IEmail.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IEmail.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IEmail.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Contact.Glue.Interfaces.DTOs.IEmail"/> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IEmail.DefaultEmail">
+            <summary>
+            Gets or sets a value indicating whether [default email].
+            </summary>
+            <value><c>true</c> if [default email]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.DTOs.IMtmPhone">
+            <summary>
+            Represents a MTMPhone.
+            NOTE: This interface is generated from a T4 template - you should not modify it manually.
+            </summary>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IMtmPhone.MtmPhoneId">
+            <summary>
+            Gets or sets the MTM phone identifier.
+            </summary>
+            <value>The MTM phone identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IMtmPhone.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IMtmPhone.PhoneId">
+            <summary>
+            Gets or sets the phone identifier.
+            </summary>
+            <value>The phone identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IMtmPhone.DefaultNumber">
+            <summary>
+            Gets or sets a value indicating whether [default number].
+            </summary>
+            <value><c>true</c> if [default number]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.DTOs.IPerson">
+            <summary>
+            Interface IPerson
+            </summary>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPerson.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPerson.First">
+            <summary>
+            Gets or sets the first.
+            </summary>
+            <value>The first.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPerson.Last">
+            <summary>
+            Gets or sets the last.
+            </summary>
+            <value>The last.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPerson.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Contact.Glue.Interfaces.DTOs.IPerson"/> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.DTOs.IPhone">
+            <summary>
+            Represents a Phone.
+            NOTE: This interface is generated from a T4 template - you should not modify it manually.
+            </summary>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPhone.PhoneId">
+            <summary>
+            Gets or sets the phone identifier.
+            </summary>
+            <value>The phone identifier.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPhone.AreaCode">
+            <summary>
+            Gets or sets the area code.
+            </summary>
+            <value>The area code.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPhone.CountryCode">
+            <summary>
+            Gets or sets the country code.
+            </summary>
+            <value>The country code.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPhone.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>The number.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPhone.PhoneType">
+            <summary>
+            Gets or sets the type of the phone.
+            </summary>
+            <value>The type of the phone.</value>
+        </member>
+        <member name="P:Contact.Glue.Interfaces.DTOs.IPhone.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Contact.Glue.Interfaces.DTOs.IPhone"/> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.Repos.IPersonalEmailRepo">
+            <summary>
+            Interface IPersonalEmailRepo
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonalEmailRepo.GetEmailsForAPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            get emails for a person as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IEnumerable&lt;IEmail&gt;.</returns>
+            <exception cref="T:Contact.Glue.Exceptions.RequestException">Invalid Person Id</exception>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonalEmailRepo.AddAnEmailToAPerson(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Adds an email to a person.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="address">The address.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.Repos.IPersonRepo">
+            <summary>
+            Interface IPersonRepo
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.GetAllAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all asynchronous.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;IPerson&gt;&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.GetPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the person asynchronous.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;System.Nullable&lt;IPerson&gt;&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.InsertAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            Inserts the asynchronous.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;Guid&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.UpdateAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            Updates the asynchronous.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.DeleteAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the asynchronous.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.SetDefaultPhoneNumberAsync(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Sets the default phone number asynchronous.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="phoneNumberId">The phone number identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Repos.IPersonRepo.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns>IPerson.</returns>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.Services.IPeopleService">
+            <summary>
+            Interface IPeopleService
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Services.IPeopleService.GetAllPeopleAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all people asynchronous.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;IPerson&gt;&gt;.</returns>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.Services.IPersonalEmailService">
+            <summary>
+            Interface IPersonalEmailService
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Services.IPersonalEmailService.GetEmailsForAPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the emails for a person.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IEnumerable&lt;IEmail&gt;&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Services.IPersonalEmailService.AddAddressToAPersonAsync(System.Guid,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Adds the email address to a person.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="address">The address.</param>
+            <param name="token">The token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Contact.Glue.Interfaces.Services.IPersonService">
+            <summary>
+            Interface IPersonService
+            </summary>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Services.IPersonService.GetAPerson(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets a person.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;IPerson&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Services.IPersonService.UpSertAsync(Contact.Glue.Interfaces.DTOs.IPerson,System.Threading.CancellationToken)">
+            <summary>
+            Ups the sert asynchronous.
+            </summary>
+            <param name="person">The person.</param>
+            <param name="token">The token.</param>
+            <returns>Task&lt;Guid&gt;.</returns>
+        </member>
+        <member name="M:Contact.Glue.Interfaces.Services.IPersonService.DeleteAPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a person asynchronous.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="token">The token.</param>
+            <returns>Task.</returns>
+        </member>
+    </members>
+</doc>

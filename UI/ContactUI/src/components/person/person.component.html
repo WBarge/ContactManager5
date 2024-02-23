@@ -1,0 +1,9 @@
+<div class="ui-g">
+  <label for="first-name">First Name</label>
+  <input id="first-name" title="This is the first name field" type="text" pInputText *ngIf="data" [(ngModel)]="data.firstName"/>
+</div>
+<br />
+<div class="ui-g">
+  <label for="last-name">Last Name</label>
+  <input id="last-name" title="This is the last name field" type="text" pInputText *ngIf="data" [(ngModel)]="data.lastName"/>
+</div>

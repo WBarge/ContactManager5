@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contact.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Contact.Service.Controllers.PeopleController">
+            <summary>
+            Class PeopleController.
+            It is the responsibility of this controller to handle people aka a collection of person 
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Contact.Service.Controllers.PeopleController._peopleService">
+            <summary>
+            The people service
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Controllers.PeopleController.#ctor(Contact.Glue.Interfaces.Services.IPeopleService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Controllers.PeopleController"/> class.
+            </summary>
+            <param name="peopleService">The people service.</param>
+            <exception cref="T:System.ArgumentNullException">peopleService</exception>
+        </member>
+        <member name="M:Contact.Service.Controllers.PeopleController.GetAsync">
+            <summary>
+            get all the people in the system as an asynchronous operation.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:Contact.Service.Controllers.PersonalEmailController">
+            <summary>
+            Class PersonalEmailController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Contact.Service.Controllers.PersonalEmailController._personalEmailService">
+            <summary>
+            The personal email service
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalEmailController.#ctor(Contact.Glue.Interfaces.Services.IPersonalEmailService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Controllers.PersonalEmailController"/> class.
+            </summary>
+            <param name="personalEmailService">The personal email service.</param>
+            <exception cref="T:System.ArgumentNullException">personalEmailService</exception>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalEmailController.GetAsync(System.Guid)">
+            <summary>
+            get the email address for a person as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalEmailController.PostAsync(Contact.Service.Models.Request.EmailRequest)">
+            <summary>
+            insert an email address for a person as an asynchronous operation.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:Contact.Service.Controllers.PersonController">
+            <summary>
+            Class PersonController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Contact.Service.Controllers.PersonController._personService">
+            <summary>
+            The person service
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonController.#ctor(Contact.Glue.Interfaces.Services.IPersonService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Controllers.PersonController"/> class.
+            </summary>
+            <param name="personService">The person service.</param>
+            <exception cref="T:System.ArgumentNullException">personService</exception>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonController.GetAsync(System.Guid)">
+            <summary>
+            gets a person as an asynchronous operation.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonController.PostAsync(Contact.Service.Models.Request.PersonRequest)">
+            <summary>
+            adds or updates a person as an asynchronous operation.
+            </summary>
+            <param name="personRequest">The person request.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonController.Delete(System.Guid)">
+            <summary>
+            Deletes the person as specified by the id.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:Contact.Service.Middleware.UiExceptionHandler">
+            <summary>
+            Class UiExceptionHandler.
+            This class is responsible for creating a consistent result message to the client in the case of an error (aka a throw)
+            </summary>
+        </member>
+        <member name="F:Contact.Service.Middleware.UiExceptionHandler._next">
+            <summary>
+            The next
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Middleware.UiExceptionHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Middleware.UiExceptionHandler" /> class.
+            </summary>
+            <param name="next">The next.</param>
+        </member>
+        <member name="M:Contact.Service.Middleware.UiExceptionHandler.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            called by the system as part of the request pipe-line
+            </summary>
+            <param name="context">The context.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Contact.Service.Middleware.UiExceptionHandler.BuildResponseBodyAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            build response body as an asynchronous operation.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="x">The x.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:Contact.Service.Middleware.UiExceptionHandlerExtensions">
+            <summary>
+            Class UiExceptionHandlerExtensions.
+            This class is responsible for registering an exception handler in the pipeline
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Middleware.UiExceptionHandlerExtensions.UseUIExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Uses the UI exception handler.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>IApplicationBuilder.</returns>
+        </member>
+        <member name="T:Contact.Service.Models.DTOs.Person">
+            <summary>
+            Class Person.
+            Implements the <see cref="T:Contact.Glue.Interfaces.DTOs.IPerson" />
+            </summary>
+            <seealso cref="T:Contact.Glue.Interfaces.DTOs.IPerson" />
+        </member>
+        <member name="P:Contact.Service.Models.DTOs.Person.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.DTOs.Person.First">
+            <summary>
+            Gets or sets the first.
+            </summary>
+            <value>The first.</value>
+        </member>
+        <member name="P:Contact.Service.Models.DTOs.Person.Last">
+            <summary>
+            Gets or sets the last.
+            </summary>
+            <value>The last.</value>
+        </member>
+        <member name="P:Contact.Service.Models.DTOs.Person.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Contact.Service.Models.DTOs.Person"/> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Service.Models.Request.EmailRequest">
+            <summary>
+            Class EmailRequest.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Request.EmailRequest.EmailId">
+            <summary>
+            Gets or sets the email identifier.
+            </summary>
+            <value>The email identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.EmailRequest.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.EmailRequest.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="T:Contact.Service.Models.Request.PersonRequest">
+            <summary>
+            Class PersonRequest.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PersonRequest.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PersonRequest.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PersonRequest.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="T:Contact.Service.Models.Result.EmailResult">
+            <summary>
+            Class EmailResult.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Result.EmailResult.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.EmailResult.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="T:Contact.Service.Models.Result.ErrorMessageForClient">
+            <summary>
+            Class ErrorMessageForClient.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Result.ErrorMessageForClient.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.ErrorMessageForClient.ExceptionType">
+            <summary>
+            Gets or sets the type of the exception.
+            </summary>
+            <value>The type of the exception.</value>
+        </member>
+        <member name="M:Contact.Service.Models.Result.ErrorMessageForClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Models.Result.ErrorMessageForClient"/> class.
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Models.Result.ErrorMessageForClient.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Models.Result.ErrorMessageForClient"/> class.
+            </summary>
+            <param name="x">The x.</param>
+        </member>
+        <member name="T:Contact.Service.Models.Result.PersonResult">
+            <summary>
+            Class PersonResult.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PersonResult.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PersonResult.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PersonResult.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="T:Contact.Service.Program">
+            <summary>
+            Class Program.
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Contact.Service.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns>IHostBuilder.</returns>
+        </member>
+        <member name="T:Contact.Service.Startup">
+            <summary>
+            Class Startup.
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Startup"/> class.
+            </summary>
+            <param name="env">The env.</param>
+        </member>
+        <member name="P:Contact.Service.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Contact.Service.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Contact.Service.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="T:Contact.Service.Transformers.EmailResultTransformer">
+            <summary>
+            Class EmailResultTransformer.
+            Responsible for transforming data between the internal structures to the interface structures
+            This class could be replaced with a tool like Auto Mapper or Fast Mapper
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Transformers.EmailResultTransformer.Transform(System.Collections.Generic.IEnumerable{Contact.Glue.Interfaces.DTOs.IEmail})">
+            <summary>
+            Transforms the specified emails.
+            </summary>
+            <param name="emails">The emails.</param>
+            <returns>IEnumerable&lt;EmailResult&gt;.</returns>
+        </member>
+        <member name="M:Contact.Service.Transformers.EmailResultTransformer.Transform(Contact.Glue.Interfaces.DTOs.IEmail)">
+            <summary>
+            Transforms the specified email.
+            </summary>
+            <param name="email">The email.</param>
+            <returns>EmailResult.</returns>
+        </member>
+        <member name="T:Contact.Service.Transformers.PersonRequestTransformer">
+            <summary>
+            Class PersonRequestTransformer.
+            Responsible for transforming data between the interface structures to the internal structures
+            This class could be replaced with a tool like Auto Mapper or Fast Mapper
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Transformers.PersonRequestTransformer.TransForm(Contact.Service.Models.Request.PersonRequest)">
+            <summary>
+            Transforms the person request to and IPerson
+            </summary>
+            <param name="personRequest">The person request.</param>
+            <returns>IPerson.</returns>
+        </member>
+        <member name="T:Contact.Service.Transformers.PersonResultTransformer">
+            <summary>
+            Class PersonResultTransformer.
+            Responsible for transforming data between the internal structures to the interface structures
+            This class could be replaced with a tool like Auto Mapper or Fast Mapper
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Transformers.PersonResultTransformer.TransForm(Contact.Glue.Interfaces.DTOs.IPerson)">
+            <summary>
+            Transforms the IPerson to the person result
+            </summary>
+            <param name="result">The result.</param>
+            <returns>PersonRequest.</returns>
+        </member>
+        <member name="T:Contact.Service.Utilities.RootComposition">
+            <summary>
+            Class RootComposition.
+            This class is an implementation of the root composition pattern https://freecontent.manning.com/dependency-injection-in-net-2nd-edition-understanding-the-composition-root/
+            We might want to move this class to a different library (dll) so the service application only depends on that different library and the glue library
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Utilities.RootComposition.ConfigureDi(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configures the di.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="configuration">The configuration.</param>
+        </member>
+    </members>
+</doc>

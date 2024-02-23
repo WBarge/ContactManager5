@@ -1,0 +1,92 @@
+<p-accordion [multiple]="true" >
+  <p-accordionTab header="Email Addresses" [selected]="true">
+      <p-table #emailTable  [value]="emails" [autoLayout]="true" (onEditComplete)="handleEmailEditComplete($event)">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th colspan="1" >
+                      <button type="button" pButton (click)="clickAddNewEmailButton(emailTable)" label="Add"></button>
+                  </th>
+                  <th colspan="2" style="text-align: center;">Address</th>
+              </tr>
+              <tr>
+                  <th colspan="1"><div></div></th>
+                  <th colspan="2" >
+                    <p-columnFilter type="text" field="address"></p-columnFilter>
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-email>
+              <tr>
+                  <td colspan="1" class="buttonCol">
+                       <button type="button" pButton label="delete"  (click)="clickDeleteEmailButton(email)"></button>
+                  </td>
+                   <td colspan="2" pEditableColumn [pEditableColumn]="email" [pEditableColumnField]="'address'">
+                      <p-cellEditor>
+                          <ng-template pTemplate="input">
+                              <input type="text" pInputText *ngIf="email" [(ngModel)]="email.address">
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                              {{email.address}}
+                          </ng-template>
+                      </p-cellEditor>
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </p-accordionTab>
+
+  <p-accordionTab header="Phone Numbers" [selected]="true">
+      <p-table #phoneTable  [autoLayout]="true" [value]="phoneNumbers">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th></th>
+                  <th colspan="2">
+                      <button type="button" pButton label="Add" (click)="clickAddNewPhoneButton(phoneTable)"></button>
+                  </th>
+                  <th>Phone Number</th>
+                  <th>Type</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-phone let-count="rowIndex">
+              <tr>
+                  <td>{{count+1}}</td>
+                  <td colspan="1">
+                      <button *ngIf="phone.id !== ''" type="button" pButton  icon="fas fa-ban" label="Delete" (click)="clickDeletePhoneButton(phone)"></button>
+                  </td>
+                  <td pEditableColumn colspan="2">
+                      <p-cellEditor>
+                          <ng-template pTemplate="input">
+                            <br/>
+                            <span class="p-float-label">
+                              <p-dropdown id="number-type" [options]="phoneTypes" optionLabel="name" optionValue="code" [(ngModel)]="phone.phoneType" placeholder="Select a Phone Type" ></p-dropdown>
+                              <label for="number-type">Select a Phone Type</label>
+                           </span><br/>
+                           <span>
+                                <label for="country-code">Country Code</label>
+                                <p-inputMask id="country-code" mask="9?99" [(ngModel)]="phone.countryCode"></p-inputMask>
+                              </span><br />
+                              <span>
+                                <label for="area-code">Area Code</label>
+                                <p-inputMask id="area-code" mask="999" [(ngModel)]="phone.areaCode"></p-inputMask>
+                              </span><br />
+                              <span>
+                                 <label for="phone-number">Number</label>
+                                 <p-inputMask id="phone-number" mask="999-9999" [(ngModel)]="phone.number"></p-inputMask>
+                              </span><br />
+                              <span>
+                                  <button *ngIf="phone.id === ''" type="button" pButton  label="Save" (click)="clickEditPhoneSaveButton(phone)"></button>
+                                  <button *ngIf="phone.id === ''"  type="button" pButton  label="Cancel" (click)="clickEditPhoneCancelButton(phone)"></button>
+                              </span>
+                          </ng-template>
+                          <ng-template pTemplate="output">
+                              <span>{{phone.formattedNumber == null?'':phone.formattedNumber}}</span>
+                          </ng-template>
+                      </p-cellEditor>
+                  </td>
+                  <td>{{ lookupPhoneType(phone.phoneType)}}</td>
+              </tr>
+          </ng-template>
+      </p-table>
+  </p-accordionTab>
+
+</p-accordion>
