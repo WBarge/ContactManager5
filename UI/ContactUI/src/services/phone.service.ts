@@ -22,7 +22,7 @@ export class PhoneService {
   }
 
   //get the phone numbers for the person
-  public getPhoneNumberss(person: Person): Observable<IPhone[]> {
+  public getPhoneNumbers(person: Person): Observable<IPhone[]> {
     var requestUrl: string = this.phoneServiceLocation + person.id;
     return this.http.get<IPhone[]>(requestUrl)
     .pipe(

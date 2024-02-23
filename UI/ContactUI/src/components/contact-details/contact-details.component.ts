@@ -105,7 +105,7 @@ export class ContactDetailsComponent implements OnChanges,OnInit {
 }
 
 private loadPhoneNumbers() {
-  this.phoneService.getPhoneNumberss(this.data as Person)
+  this.phoneService.getPhoneNumbers(this.data as Person)
   .pipe(
     map((numbers:IPhone[])=>{
       const returnValue:Phone[] = new Array();
