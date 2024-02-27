@@ -36,6 +36,7 @@ export class ErrorHandlerService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
+      //send a message to the user via the message service
       const convertedError:SystemError = error.error as SystemError;
       const message = (convertedError !== undefined) ?
         convertedError.message :

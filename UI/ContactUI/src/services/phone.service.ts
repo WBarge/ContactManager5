@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocationService } from './location.service';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { ErrorHandlerService, HandleError } from './errorHandler.service';
 import { Person } from '../models/person';
 import { IPhone } from '../Interfaces/iphone';
@@ -30,11 +30,11 @@ export class PhoneService {
         phoneNumbers.forEach((number:IPhone)=>number.personId = person.id);
         return phoneNumbers;
       }),
-      catchError(this.handleError('getPhoneNumberss', [])));
+      catchError(this.handleError<IPhone[]>('getPhoneNumberss', [])));
   }
 
   //save the phone number
-  public addPhoneNumber(phone: Phone) {
+  public addPhoneNumber(phone: Phone): Observable<any>{
     var request = {personId:phone.personId,
       countryCode:phone.countryCode,
       areaCode:phone.areaCode,
@@ -44,16 +44,16 @@ export class PhoneService {
 
     return this.http.post(this.phoneServiceLocation, request)
       .pipe(
-        catchError(this.handleError('addPhoneNumber')));
+        catchError(this.handleError<any>('addPhoneNumber')));
   }
 
-  public deletePhoneNumber(phone:Phone){
+  public deletePhoneNumber(phone:Phone): Observable<any>{
     var requestUrl: string = this.phoneServiceLocation;
         var paras: HttpParams = new HttpParams()
         .set('phoneId', phone.id)
         .set('personId', phone.personId);
         return this.http.delete(requestUrl, { params:paras })
         .pipe(
-          catchError(this.handleError('deletePhoneNumber')));
+          catchError(this.handleError<any>('deletePhoneNumber')));
   }
 }

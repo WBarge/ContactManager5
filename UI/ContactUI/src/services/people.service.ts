@@ -25,7 +25,7 @@ export class PeopleService {
   getPeople():Observable<IPerson[]>{
     return this.http.get<IPerson[]>(this.peopleServiceLocation)
     .pipe(
-      catchError(this.handleError('getPeople', []))
+      catchError(this.handleError<IPerson[]>('getPeople', []))
     );
   }
 
@@ -42,7 +42,7 @@ export class PeopleService {
 
     return this.http.post(this.personServiceLocation,dataRequest)
       .pipe(
-        catchError(this.handleError('savePerson'))
+        catchError(this.handleError<any>('savePerson'))
       )
   }
 }

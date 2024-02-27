@@ -1,8 +1,14 @@
+import { NgModule } from '@angular/core';
 import { Person } from "../person";
 
-export class PersonComparer {
+NgModule({
+  imports:[
+    Person
+  ]
+})
+export module PersonComparer {
 
-  public static AreTheSame(oldObj: Person, newObj: Person): boolean {
+  export function AreTheSame(oldObj: Person, newObj: Person): boolean {
     var returnValue: boolean = true;
 
     if (oldObj.id != newObj.id ||
@@ -11,5 +17,6 @@ export class PersonComparer {
         returnValue = false;
     }
     return returnValue;
+  }
 }
-}
+

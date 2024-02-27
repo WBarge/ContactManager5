@@ -1,16 +1,49 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ErrorHandlerService } from './errorHandler.service';
+import { ErrorHandlerService, HandleError } from './errorHandler.service';
+import { MessageService } from 'primeng/api';
+import { createSpyFromClass } from 'jasmine-auto-spies';
+import { HttpErrorResponse } from '@angular/common/http';
+import { SystemError } from '../models/system-error';
 
-xdescribe('ErrorHandlerService', () => {
+describe('ErrorHandlerService', () => {
   let service: ErrorHandlerService;
+  let messageService:MessageService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ErrorHandlerService);
+    TestBed.configureTestingModule({
+      providers:[
+      {provide:MessageService, useValue: createSpyFromClass(MessageService)},
+      ErrorHandlerService
+    ]
+    });
+    messageService = TestBed.inject(MessageService);
   });
 
   it('should be created', () => {
+    service = TestBed.inject(ErrorHandlerService);
     expect(service).toBeTruthy();
+  });
+
+  it('should provide centeralized error handling',()=>{
+    service = TestBed.inject(ErrorHandlerService);
+
+    let result:HandleError = service.createHandleError('unitTests');
+    expect(result).toBeDefined();
+  });
+
+  it('should send an error to the message service',()=>{
+
+    service = TestBed.inject(ErrorHandlerService);
+
+    let errorHandler:HandleError = service.createHandleError('unitTests');
+
+    let errorMessage:SystemError = {message:'testError',exceptionType:'testException'}
+    errorHandler<any>('testing',{})(new HttpErrorResponse({error:errorMessage})).subscribe(
+      ()=>{
+        expect(messageService.add).toHaveBeenCalled();
+      }
+    );
+
   });
 });

@@ -27,21 +27,21 @@ export class EmailService {
         var requestUrl: string = this.emailServiceLocation + person.id;
         return this.http.get<IEmail[]>(requestUrl)
         .pipe(
-          catchError(this.handleError('getEmailAddresses', [])));
+          catchError(this.handleError<IEmail[]>('getEmailAddresses', [])));
     }
 
     //save the email
-    public addEmail(email: Email){
+    public addEmail(email: Email):Observable<any>{
       const request ={personId:email.personId,address:email.address}
         return this.http.post(this.emailServiceLocation, request).pipe(
-            catchError(this.handleError('saveEmail')));
+            catchError(this.handleError<any>('saveEmail')));
     }
 
     //delete the email
     public deleteEmail(email: Email): Observable<any> {
         var requestUrl: string = this.emailServiceLocation + email.id;
         return this.http.delete(requestUrl).pipe(
-          catchError(this.handleError('deleteEmail')));
+          catchError(this.handleError<any>('deleteEmail')));
     }
 
 }
