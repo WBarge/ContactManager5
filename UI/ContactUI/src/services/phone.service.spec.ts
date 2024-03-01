@@ -15,7 +15,6 @@ describe('PhoneService', () => {
   let service: PhoneService;
   let httpSpy: Spy<HttpClient>;
   let errorHandler:Spy<ErrorHandlerService>;
-  let messageService:Spy<MessageService>;
   let configService:Spy<LocationService>;
   let testLocation:string = 'someLocation';
   let locationResult:string = testLocation+'PersonalPhoneNumber/';
