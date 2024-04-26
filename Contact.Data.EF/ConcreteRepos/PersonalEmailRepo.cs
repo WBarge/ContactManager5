@@ -65,7 +65,7 @@ namespace Contact.Data.EF.ConcreteRepos
 
             ThrowIfNull(person);
 
-            return person.Emails.Where(e=>e.Deleted == false).ToList();
+            return person!.Emails.Where(e=>e.Deleted == false).ToList();
         }
 
         /// <summary>
@@ -89,13 +89,15 @@ namespace Contact.Data.EF.ConcreteRepos
         /// <param name="token">The token.</param>
         public async  Task AddAnEmailToAPerson(Guid personId, string address, CancellationToken token = default)
         {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             Person person = await _contactDbContext.People.Include(p=>p.Emails).FirstOrDefaultAsync(p => p.PersonId == personId && p.Deleted == false, cancellationToken: token);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             ThrowIfNull(person);
             Email addressToAdd = new Email
             {
                 Address = address
             };
-            if (person.Emails.IsEmpty())
+            if (person!.Emails.IsEmpty())
             {
                 person.Emails = new List<Email>();
             }
@@ -111,9 +113,11 @@ namespace Contact.Data.EF.ConcreteRepos
         /// <returns>A Task representing the asynchronous operation.</returns>
         public async Task DeleteEmailAsync(Guid emailId, CancellationToken token = default)
         {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             Email email = await _contactDbContext.Emails.FirstOrDefaultAsync(e => e.EmailId == emailId, token);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             ThrowIfNull(email);
-            email.Deleted = true;
+            email!.Deleted = true;
             await _contactDbContext.SaveChangesAsync(token);
         }
     }

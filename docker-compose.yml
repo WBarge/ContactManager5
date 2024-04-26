@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  contact.service:
+    image: ${DOCKER_REGISTRY-}contactservice
+    build:
+      context: .
+      dockerfile: Contact.Service/Dockerfile
+    container_name: contactManager5
+    ports:
+        - 4300:8080
+        - 4301:8081
+  sql:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    container_name: sql_server2022
+    ports: # not actually needed, because the two services are on the same network
+      - "1433:1433" 
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=A&VeryComplex123Password
+  # db:
+  #   environment:
+  #     ACCEPT_EULA: "Y"
+  #     SA_PASSWORD: buckrogerz
+  #   # mssql server image isn't available for arm64 architecture, so we use azure-sql instead
+  #   image: mcr.microsoft.com/azure-sql-edge:1.0.4
+  #   # If you really want to use MS SQL Server, uncomment the following line
+  #   #image: mcr.microsoft.com/mssql/server
+  #   restart: always
+  #   healthcheck:
+  #       test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P buckrogerz -Q 'SELECT 1' || exit 1"]
+  #       interval: 10s
+  #       retries: 10
+  #       start_period: 10s
+  #       timeout: 3s     

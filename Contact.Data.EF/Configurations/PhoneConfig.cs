@@ -21,7 +21,7 @@ namespace Contact.Data.EF.Configurations
             builder.Property(p => p.AreaCode)
                 .HasMaxLength(4);
             builder.Property(p => p.Number)
-                .HasMaxLength(7);
+                .HasMaxLength(8);
 
             //define many-many relationship
             builder.HasMany(phone => phone.People)

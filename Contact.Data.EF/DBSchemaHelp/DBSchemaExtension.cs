@@ -32,7 +32,7 @@ namespace Contact.Data.EF.DBSchemaHelp
             ServiceProvider provider = services.BuildServiceProvider();
             ContactDbContext dbContext = provider.GetRequiredService<ContactDbContext>();
             dbContext.Required(nameof(dbContext));
-            dbContext.Database.Migrate();
+            dbContext.Database.EnsureCreated();
 
         }
     }
