@@ -67,6 +67,12 @@ namespace Contact.Business
             await _personalEmailRepo.AddAnEmailToAPerson(personId, address, token);
         }
 
+        /// <summary>
+        /// Delete email as an asynchronous operation.
+        /// </summary>
+        /// <param name="emailId">The email identifier.</param>
+        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>A Task representing the asynchronous operation.</returns>
         public async Task DeleteEmailAsync(Guid emailId, CancellationToken token = default)
         {
             await _personalEmailRepo.DeleteEmailAsync(emailId,token);

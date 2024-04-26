@@ -50,7 +50,6 @@ namespace Contact.Tests.Glue.Extensions
             try
             {
                 test.Required(nameof(test));
-                Assert.True(true,"Test Passed");
             }
             catch (Exception)
             {
@@ -71,7 +70,9 @@ namespace Contact.Tests.Glue.Extensions
             }
             catch (Exception)
             {
-                Assert.True(true,"Test Passed");
+                Assert.Pass("Test Passed");
+
+//                Assert.True(true,"Test Passed");
             }
             
         }
