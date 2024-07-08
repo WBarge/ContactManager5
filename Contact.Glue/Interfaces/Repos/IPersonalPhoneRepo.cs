@@ -63,6 +63,15 @@ namespace Contact.Glue.Interfaces.Repos
         Task<IEnumerable<IPhone>> GetAPersonsPhoneNumbersAsync(Guid personId, CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Sets the default phone number asynchronous.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="phoneNumberId">The phone number identifier.</param>
+        /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Task&lt;System.Boolean&gt;.</returns>
+        Task<bool> SetDefaultPhoneNumberAsync(Guid personId, Guid phoneNumberId, CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Deletes a persons number.
         /// </summary>
         /// <param name="phoneId">The phone identifier.</param>

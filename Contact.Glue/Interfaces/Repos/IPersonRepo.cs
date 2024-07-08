@@ -60,14 +60,6 @@ namespace Contact.Glue.Interfaces.Repos
         /// <returns>Task.</returns>
         Task DeleteAsync(IPerson entity, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Sets the default phone number asynchronous.
-        /// </summary>
-        /// <param name="personId">The person identifier.</param>
-        /// <param name="phoneNumberId">The phone number identifier.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>Task&lt;System.Boolean&gt;.</returns>
-        Task<bool> SetDefaultPhoneNumberAsync(Guid personId, Guid phoneNumberId,CancellationToken cancellationToken = default);
-        /// <summary>
         /// Creates this instance.
         /// </summary>
         /// <returns>IPerson.</returns>

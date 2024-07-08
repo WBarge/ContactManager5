@@ -24,6 +24,8 @@ using Contact.Glue.Extensions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
 using Microsoft.EntityFrameworkCore;
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 namespace Contact.Data.EF.ConcreteRepos
 {

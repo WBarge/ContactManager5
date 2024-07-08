@@ -120,36 +120,6 @@ namespace Contact.Data.EF.ConcreteRepos
         }
 
         /// <summary>
-        /// set default phone number as an asynchronous operation.
-        /// </summary>
-        /// <param name="personId">The person identifier.</param>
-        /// <param name="phoneNumberId">The phone number identifier.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public async Task<bool> SetDefaultPhoneNumberAsync(Guid personId, Guid phoneNumberId,CancellationToken cancellationToken = default)
-        {
-            personId.Required(nameof(personId));
-            phoneNumberId.Required(nameof(phoneNumberId));
-
-            bool returnValue = false;
-            Person? person = DbContext.People
-                .Include(p => p.MtmPhones)
-                .ThenInclude(m => m.Phone)
-                .FirstOrDefault(p => p.PersonId == personId);
-            if (person != null)
-            {
-                foreach (MtmPhone personMtmPhone in person.MtmPhones)
-                {
-                    personMtmPhone.DefaultNumber = personMtmPhone.PhoneId == phoneNumberId;
-                }
-
-                await DbContext.SaveChangesAsync(cancellationToken);
-                returnValue = true;
-            }
-            return returnValue;
-        }
-
-        /// <summary>
         /// Creates this instance.
         /// </summary>
         /// <returns>IPerson.</returns>

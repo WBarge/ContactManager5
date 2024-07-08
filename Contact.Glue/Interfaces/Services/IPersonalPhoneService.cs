@@ -52,5 +52,14 @@ namespace Contact.Glue.Interfaces.Services
         /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task.</returns>
         Task DeletePhoneAsync(Guid phoneId, Guid personId,CancellationToken token= default);
+
+        /// <summary>
+        /// Sets the default number asynchronous.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="phoneId">The phone identifier.</param>
+        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Task.</returns>
+        Task SetDefaultNumberAsync(Guid personId, Guid phoneId,CancellationToken token= default);
     }
 }

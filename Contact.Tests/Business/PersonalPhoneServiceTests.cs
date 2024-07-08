@@ -89,5 +89,19 @@ namespace Contact.Tests.Business
                         It.IsAny<CancellationToken>()),
                 Times.AtLeastOnce);
         }
+
+        [Test,Description("Test Setting a phone number as the default number for a person")]
+        public async Task TestSetDefaultNumber_Success()
+        {
+            Mock<IPersonalPhoneRepo> repo = new();
+
+
+            PersonalPhoneService sut = new PersonalPhoneService(repo.Object);
+            await sut.SetDefaultNumberAsync(Guid.NewGuid(),Guid.NewGuid());
+
+            repo.Verify(m=>
+                    m.SetDefaultPhoneNumberAsync(It.IsAny<Guid>(),It.IsAny<Guid>(),It.IsAny<CancellationToken>()),
+                Times.AtLeastOnce);
+        }
     }
 }

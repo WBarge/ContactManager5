@@ -196,5 +196,30 @@ namespace Contact.Tests.Data.Repos
                 }
             }
         }
+
+        [Test, Description("Test setting the persons default number")]
+        public async Task SetDefaultPhoneNumberAsync_SetDefaultNumber_Success()
+        {
+            using (IServiceScope serviceScope = _serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                using (ContactDbContext context = serviceScope.ServiceProvider.GetRequiredService<ContactDbContext>())
+                {
+                    Person person = context.People.Include(p => p.Phones).First();
+                    Phone phone = person.Phones.First();
+
+                    PersonalPhoneRepo sut = new PersonalPhoneRepo(context);
+
+                    await sut.SetDefaultPhoneNumberAsync(person.PersonId,phone.PhoneId);
+
+                    Person result = await context.People
+                        .Include(p => p.MtmPhones)
+                        .ThenInclude(m => m.Phone)
+                        .FirstOrDefaultAsync(p => p.MtmPhones.Any(mt => mt.DefaultNumber == true));
+                    result.Should().NotBeNull();
+                    result.MtmPhones.First().DefaultNumber.Should().BeTrue();
+                    result.MtmPhones.First().PhoneId.Should().Be(phone.PhoneId);
+                }
+            }
+        }
     }
 }

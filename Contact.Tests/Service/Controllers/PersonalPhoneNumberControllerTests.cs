@@ -138,5 +138,25 @@ namespace Contact.Tests.Service.Controllers
                     It.IsAny<CancellationToken>()), Times.Never);
 
         }
+
+        [Test, Description("Test the a post on the controller to set the default phone number")]
+        public async Task PostAsync_SetDefaultNumber_Success()
+        {
+            await TestContext.Out.WriteLineAsync("setting up test");
+            Mock<IPersonalPhoneService> service = new();
+
+            await TestContext.Out.WriteLineAsync("executing test");
+            PersonalPhoneNumberController sut = new(service.Object);
+            IActionResult result = await sut.SetDefaultNumber(Guid.NewGuid(), Guid.NewGuid());
+
+            await TestContext.Out.WriteLineAsync("examining results");
+            result.Should().NotBeNull();
+            result.Should().BeOfType<OkResult>();
+            OkResult castedResult = result as OkResult;
+            castedResult.Should().NotBeNull();
+            castedResult!.StatusCode.Should().Be((int)HttpStatusCode.OK);
+
+            service.Verify();
+        }
     }
 }

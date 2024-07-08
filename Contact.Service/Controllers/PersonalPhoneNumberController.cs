@@ -100,5 +100,23 @@ namespace Contact.Service.Controllers
             await _personalPhoneService.DeletePhoneAsync(phoneId, personId);
             return new OkResult();
         }
+
+        /// <summary>
+        /// Sets the default phone number.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="phoneId">The phone identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpPost("{personId}/DefaultNumber/{phoneId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorMessageForClient), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorMessageForClient), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> SetDefaultNumber([FromQuery] Guid personId, [FromQuery] Guid phoneId)
+        {
+            phoneId.Required("Phone Id");
+            personId.Required("Person Id");
+            await _personalPhoneService.SetDefaultNumberAsync(personId, phoneId);
+            return new OkResult();
+        }
     }
 }

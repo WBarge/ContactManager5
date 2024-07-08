@@ -85,5 +85,17 @@ namespace Contact.Business
         {
             await _phoneRepo.DeleteAPersonsNumber(phoneId,personId,token);
         }
+
+        /// <summary>
+        /// Set default number as an asynchronous operation.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="phoneId">The phone identifier.</param>
+        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>A Task representing the asynchronous operation.</returns>
+        public async Task SetDefaultNumberAsync(Guid personId, Guid phoneId, CancellationToken token = default)
+        {
+            await _phoneRepo.SetDefaultPhoneNumberAsync(personId, phoneId,token);
+        }
     }
 }

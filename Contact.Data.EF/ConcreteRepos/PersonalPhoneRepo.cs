@@ -43,7 +43,7 @@ namespace Contact.Data.EF.ConcreteRepos
         /// <exception cref="System.ArgumentNullException">context</exception>
         public PersonalPhoneRepo(ContactDbContext context)
         {
-            _contactDbContext = context ?? throw new ArgumentNullException(nameof(context) + " is manditory");
+            _contactDbContext = context ?? throw new ArgumentNullException(nameof(context) + " is mandatory");
         }
 
         /// <summary>
@@ -107,7 +107,13 @@ namespace Contact.Data.EF.ConcreteRepos
             }
         }
 
-        private bool DoesNumberExist(Phone phoneToAdd,out Guid? phoneId)
+        /// <summary>
+        /// Does the number exist.
+        /// </summary>
+        /// <param name="phoneToAdd">The phone to add.</param>
+        /// <param name="phoneId">The phone identifier.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        private bool DoesNumberExist(IPhone phoneToAdd,out Guid? phoneId)
         {
             phoneId = Guid.Empty;
             Phone phone = _contactDbContext.PhoneNumbers.FirstOrDefault(p => p.CountryCode == phoneToAdd.CountryCode &&
@@ -136,6 +142,36 @@ namespace Contact.Data.EF.ConcreteRepos
             }, cancellationToken).ConfigureAwait(false);
             return phoneNumber;
         }
+
+        /// <summary>
+        /// set default phone number as an asynchronous operation.
+        /// </summary>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="phoneNumberId">The phone number identifier.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public async Task<bool> SetDefaultPhoneNumberAsync(Guid personId, Guid phoneNumberId,CancellationToken cancellationToken = default)
+        {
+            personId.Required(nameof(personId));
+            phoneNumberId.Required(nameof(phoneNumberId));
+
+            bool returnValue = false;
+            Person person = _contactDbContext.People
+                .Include(p => p.MtmPhones)
+                .FirstOrDefault(p => p.PersonId == personId);
+            if (person != null)
+            {
+                foreach (MtmPhone personMtmPhone in person.MtmPhones)
+                {
+                    personMtmPhone.DefaultNumber = personMtmPhone.PhoneId == phoneNumberId;
+                }
+
+                await _contactDbContext.SaveChangesAsync(cancellationToken);
+                returnValue = true;
+            }
+            return returnValue;
+        }
+
 
         /// <summary>
         /// Get a persons phone numbers as an asynchronous operation.
