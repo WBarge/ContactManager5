@@ -172,7 +172,6 @@ namespace Contact.Data.EF.ConcreteRepos
             return returnValue;
         }
 
-
         /// <summary>
         /// Get a persons phone numbers as an asynchronous operation.
         /// </summary>
@@ -191,6 +190,13 @@ namespace Contact.Data.EF.ConcreteRepos
             return phoneNumbers;
         }
 
+        /// <summary>
+        /// Deletes a persons number.
+        /// </summary>
+        /// <param name="phoneId">The phone identifier.</param>
+        /// <param name="personId">The person identifier.</param>
+        /// <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Task.</returns>
         public async Task DeleteAPersonsNumber(Guid phoneId, Guid personId, CancellationToken token)
         {
             Person person = await _contactDbContext.People.Include(p => p.Phones)
