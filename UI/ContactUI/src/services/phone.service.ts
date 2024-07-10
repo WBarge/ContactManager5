@@ -56,4 +56,11 @@ export class PhoneService {
         .pipe(
           catchError(this.handleError<any>('deletePhoneNumber')));
   }
+
+  public setDefaultPhoneNumber(person:Person, phone:Phone): Observable<any>{
+    var requestUrl:string = this.phoneServiceLocation + '/'+ person.id +"/DefaultNumber/"+ phone.id;
+    return this.http.post(requestUrl,{})
+      .pipe(
+        catchError(this.handleError<any>('setDefaultPhoneNumber')));
+  }
 }
