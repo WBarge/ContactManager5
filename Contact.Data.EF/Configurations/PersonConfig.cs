@@ -1,9 +1,11 @@
-﻿using Contact.Data.EF.ConcretePocos;
+﻿using System.Diagnostics.CodeAnalysis;
+using Contact.Data.EF.ConcretePocos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Contact.Data.EF.Configurations
 {
+    [SuppressMessage("ReSharper", "RedundantArgumentDefaultValue")]
     internal class PersonConfig : IEntityTypeConfiguration<Person>
     {
         public void Configure(EntityTypeBuilder<Person> builder)

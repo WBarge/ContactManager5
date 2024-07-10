@@ -32,7 +32,7 @@ namespace Contact.Tests.Data
                     Last = "bar",
                     Deleted = false
                 };
-                Guid emailId = Guid.NewGuid();
+                Guid.NewGuid();
                 Email email = new()
                 {
                     Address = "test@gmail.com",

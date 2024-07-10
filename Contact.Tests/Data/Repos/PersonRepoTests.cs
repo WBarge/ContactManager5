@@ -8,7 +8,6 @@ using Contact.Data.EF.ConcreteRepos;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Tests.TestDataFactories;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 
@@ -46,6 +45,7 @@ namespace Contact.Tests.Data.Repos
         [Test, Description("Test required context object")]
         public void Constructor_RequiredContext_Fail()
         {
+            // ReSharper disable once AssignNullToNotNullAttribute
             Assert.Throws<ArgumentNullException>(() => new PersonRepo(null));
         }
 
@@ -102,6 +102,7 @@ namespace Contact.Tests.Data.Repos
                     PersonRepo sut = new PersonRepo(context);
                     IPerson result = await sut.GetPersonAsync(person.PersonId);
                     result.Should().NotBeNull();
+                    // ReSharper disable once PossibleNullReferenceException
                     result.PersonId.Should().Be(person.PersonId);
                 }
             }

@@ -6,8 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Contact.Data.EF;
 using Contact.Data.EF.ConcreteRepos;
-using Contact.Glue.Exceptions;
 using Contact.Glue.Interfaces.DTOs;
+using CrossCutting.Exceptions;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 
@@ -45,6 +45,7 @@ namespace Contact.Tests.Data.Repos
         [Test, Description("Test required context object")]
         public void Constructor_RequiredContext_Fail()
         {
+            // ReSharper disable once AssignNullToNotNullAttribute
             Assert.Throws<ArgumentNullException>(() => new PersonalEmailRepo(null));
         }
 
@@ -130,15 +131,14 @@ namespace Contact.Tests.Data.Repos
         {
             using (IServiceScope serviceScope = _serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                using (ContactDbContext context = serviceScope.ServiceProvider.GetRequiredService<ContactDbContext>())
+                await using (ContactDbContext context = serviceScope.ServiceProvider.GetRequiredService<ContactDbContext>())
                 {
                     Guid personId = context.People.First().PersonId;
 
                     PersonalEmailRepo sut = new PersonalEmailRepo(context);
                     await sut.AddAnEmailToAPerson(personId,"newAddress@gmail.com");
 
-                    context.People.Include(p => p.Emails);
-                    context.People.First().Emails.Should().HaveCount(2);
+                    context.People.Include(person => person.Emails).First().Emails.Should().HaveCount(2);
 
                 }
             }

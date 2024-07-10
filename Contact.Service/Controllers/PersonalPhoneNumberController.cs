@@ -14,12 +14,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Contact.Glue.Extensions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Services;
 using Contact.Service.Models.Request;
 using Contact.Service.Models.Result;
 using Contact.Service.Transformers;
+using CrossCutting.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

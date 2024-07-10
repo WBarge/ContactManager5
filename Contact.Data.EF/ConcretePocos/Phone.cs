@@ -48,6 +48,7 @@ namespace Contact.Data.EF.ConcretePocos
         /// Gets or sets the type of the phone.
         /// </summary>
         /// <value>The type of the phone.</value>
+        // ReSharper disable once EntityFramework.ModelValidation.UnlimitedStringLength
         public string PhoneType { get; set; }
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:Contact.Glue.Interfaces.DTOs.IPhone" /> is deleted.

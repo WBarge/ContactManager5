@@ -1,9 +1,9 @@
 ﻿using Contact.Data.EF.ConcretePocos;
 using Contact.Glue.Interfaces.DTOs;
 
-namespace Contact.Data.EF.ConcreteRepos
+namespace Contact.Data.EF.Transformers
 {
-    public class PhoneTransformer
+    public static class PhoneTransformer
     {
         public static Phone TransForm(IPhone entity)
         {

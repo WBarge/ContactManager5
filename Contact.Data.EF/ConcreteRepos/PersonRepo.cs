@@ -19,10 +19,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Contact.Data.EF.ConcretePocos;
 using Contact.Data.EF.Transformers;
-using Contact.Glue.Extensions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
-using Microsoft.EntityFrameworkCore;
 
 namespace Contact.Data.EF.ConcreteRepos
 {
@@ -74,7 +72,7 @@ namespace Contact.Data.EF.ConcreteRepos
         /// <returns>Guid.</returns>
         public async Task<Guid> InsertAsync(IPerson entity,CancellationToken cancellationToken = default)
         {
-            Person rec = null!;
+            Person? rec = null;
             if (entity is Person person)
             {
                 rec = person;
@@ -84,7 +82,7 @@ namespace Contact.Data.EF.ConcreteRepos
                 rec = PersonTransformer.TransForm(entity);
             }
             await base.InsertAsync(rec);
-            await base.SaveAsync(cancellationToken);
+            await SaveAsync(cancellationToken);
             return rec.PersonId;
         }
 
@@ -105,7 +103,7 @@ namespace Contact.Data.EF.ConcreteRepos
                 rec = PersonTransformer.TransForm(entity);
             }
             base.Update(rec);
-            await base.SaveAsync(cancellationToken);
+            await SaveAsync(cancellationToken);
         }
 
         /// <summary>

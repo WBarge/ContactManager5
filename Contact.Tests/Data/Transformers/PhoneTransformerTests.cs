@@ -1,5 +1,5 @@
 ﻿using Contact.Data.EF.ConcretePocos;
-using Contact.Data.EF.ConcreteRepos;
+using Contact.Data.EF.Transformers;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Tests.TestDataFactories;
 using FluentAssertions;

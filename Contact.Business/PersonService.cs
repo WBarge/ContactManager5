@@ -14,11 +14,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Contact.Glue.Exceptions;
-using Contact.Glue.Extensions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
 using Contact.Glue.Interfaces.Services;
+using CrossCutting.Exceptions;
+using CrossCutting.Extensions;
 
 namespace Contact.Business
 {

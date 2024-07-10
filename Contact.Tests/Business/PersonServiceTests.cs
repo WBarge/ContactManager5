@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Contact.Business;
-using Contact.Glue.Exceptions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
 using Contact.Tests.TestDataFactories;
+using CrossCutting.Exceptions;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;

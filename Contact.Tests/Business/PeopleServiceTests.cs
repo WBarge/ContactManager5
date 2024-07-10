@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Contact.Business;
-using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
 using FluentAssertions;
 using Moq;
@@ -36,7 +34,7 @@ namespace Contact.Tests.Business
         {
             Mock<IPersonRepo> repo = new();
             PeopleService sut = new PeopleService(repo.Object);
-            IEnumerable<IPerson> result= await sut.GetAllPeopleAsync();
+            await sut.GetAllPeopleAsync();
 
             repo.Verify(m=>m.GetAllAsync(It.IsAny<CancellationToken>()),Times.AtLeastOnce);
         }

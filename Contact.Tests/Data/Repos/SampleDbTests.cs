@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Contact.Data.EF;
 using Contact.Data.EF.ConcretePocos;
 using Microsoft.EntityFrameworkCore;
+// ReSharper disable RedundantToStringCall
 
 namespace Contact.Tests.Data.Repos
 {
@@ -69,7 +70,7 @@ namespace Contact.Tests.Data.Repos
         /// Defines the test method sampleTest.
         /// </summary>
         [Test]
-        public void sampleTest()
+        public void SampleTest()
         {
             using (IServiceScope serviceScope = _serviceProvider.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {

@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Contact.Glue.Extensions;
+using CrossCutting.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,13 +21,13 @@ namespace Contact.Data.EF.DBSchemaHelp
     /// <summary>
     /// Class DBSchemaExtension.
     /// </summary>
-    public static class DBSchemaExtension
+    public static class DbSchemaExtension
     {
         /// <summary>
         /// Handles the database schema creation and migrations.
         /// </summary>
         /// <param name="services">The services.</param>
-        public static void HandleDBSchema(this IServiceCollection services)
+        public static void HandleDbSchema(this IServiceCollection services)
         {
             ServiceProvider provider = services.BuildServiceProvider();
             ContactDbContext dbContext = provider.GetRequiredService<ContactDbContext>();

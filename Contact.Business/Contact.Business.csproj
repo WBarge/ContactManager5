@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="My.CrossCutting.Libraries" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Contact.Glue\Contact.Glue.csproj" />
   </ItemGroup>
 

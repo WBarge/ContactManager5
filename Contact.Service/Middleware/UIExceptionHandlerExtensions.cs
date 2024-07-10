@@ -13,7 +13,7 @@ namespace Contact.Service.Middleware
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>IApplicationBuilder.</returns>
-        public static IApplicationBuilder UseUIExceptionHandler(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseUiExceptionHandler(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<UiExceptionHandler>();
         }

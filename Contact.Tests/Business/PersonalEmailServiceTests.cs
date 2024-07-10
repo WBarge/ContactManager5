@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Contact.Business;
-using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
 using FluentAssertions;
 using Moq;
@@ -35,7 +33,7 @@ namespace Contact.Tests.Business
         {
             Mock<IPersonalEmailRepo> repo = new();
             PersonalEmailService sut = new PersonalEmailService(repo.Object);
-            IEnumerable<IEmail> result= await sut.GetEmailsForAPersonAsync(Guid.NewGuid());
+            await sut.GetEmailsForAPersonAsync(Guid.NewGuid());
 
             repo.Verify(m=>m.GetEmailsForAPersonAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()),Times.AtLeastOnce);
         }

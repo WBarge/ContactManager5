@@ -68,7 +68,7 @@ namespace Contact.Service
 
             services.ConfigureDi(Configuration);
             
-            services.HandleDBSchema();
+            services.HandleDbSchema();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,7 +80,7 @@ namespace Contact.Service
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //configure centralized error handling
-            app.UseUIExceptionHandler();
+            app.UseUiExceptionHandler();
 
             if (env.IsDevelopment())
             {
@@ -88,11 +88,11 @@ namespace Contact.Service
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Contact.Service v1"));
             }
 
-            app.UseCors(app =>
+            app.UseCors(policyBuilder =>
             {
-                app.AllowAnyOrigin();
-                app.AllowAnyMethod();
-                app.AllowAnyHeader();
+                policyBuilder.AllowAnyOrigin();
+                policyBuilder.AllowAnyMethod();
+                policyBuilder.AllowAnyHeader();
             });
 
             app.UseRouting();

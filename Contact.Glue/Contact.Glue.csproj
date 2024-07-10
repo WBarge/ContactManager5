@@ -10,8 +10,10 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\DTOs\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="My.CrossCutting.Libraries" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

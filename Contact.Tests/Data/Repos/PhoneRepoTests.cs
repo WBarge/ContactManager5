@@ -69,7 +69,7 @@ namespace Contact.Tests.Data.Repos
                 {
                     Phone phone = context.PhoneNumbers.First();
                     PhoneRepo sut = new PhoneRepo(context);
-                    IPhone result = await sut.GetPhoneAsync(phone.PhoneId);
+                    await sut.GetPhoneAsync(phone.PhoneId);
                     phone.Should().NotBeNull();
                 }
             }
@@ -85,7 +85,7 @@ namespace Contact.Tests.Data.Repos
                     IPhone phone = PhoneFactory.GeneratePhoneData();
                     phone.PhoneId = Guid.Empty;
                     PhoneRepo sut = new PhoneRepo(context);
-                    Guid result = await sut.InsertAsync(phone);
+                    await sut.InsertAsync(phone);
                     phone.Should().NotBeNull();
 
                     context.PhoneNumbers.ToList().Should().HaveCountGreaterOrEqualTo(2);

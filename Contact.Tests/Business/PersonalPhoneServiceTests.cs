@@ -3,10 +3,8 @@ using Contact.Glue.Interfaces.Repos;
 using Moq;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Contact.Glue.Interfaces.DTOs;
 using FluentAssertions;
 
 namespace Contact.Tests.Business
@@ -33,7 +31,7 @@ namespace Contact.Tests.Business
         {
             Mock<IPersonalPhoneRepo> repo = new();
             PersonalPhoneService sut = new PersonalPhoneService(repo.Object);
-            IEnumerable<IPhone> result = await sut.GetPhoneNumbersForAPersonAsync(Guid.NewGuid());
+            await sut.GetPhoneNumbersForAPersonAsync(Guid.NewGuid());
 
             repo.Verify(m=>m.GetAPersonsPhoneNumbersAsync(It.IsAny<Guid>(),It.IsAny<CancellationToken>()),Times.AtLeastOnce);
         }

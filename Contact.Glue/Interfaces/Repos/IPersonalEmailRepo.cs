@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Contact.Glue.Exceptions;
 using Contact.Glue.Interfaces.DTOs;
 
 namespace Contact.Glue.Interfaces.Repos
@@ -18,7 +17,7 @@ namespace Contact.Glue.Interfaces.Repos
         /// <param name="personId">The person identifier.</param>
         /// <param name="cancellationToken"></param>
         /// <returns>IEnumerable&lt;IEmail&gt;.</returns>
-        /// <exception cref="RequestException">Invalid Person Id</exception>
+        /// <exception cref="CrossCutting.Exceptions.RequestException">Invalid Person Id</exception>
         Task<IEnumerable<IEmail>> GetEmailsForAPersonAsync(Guid personId, CancellationToken cancellationToken);
 
         /// <summary>

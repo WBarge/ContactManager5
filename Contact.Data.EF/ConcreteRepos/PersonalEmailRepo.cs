@@ -19,10 +19,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Contact.Data.EF.ConcretePocos;
-using Contact.Glue.Exceptions;
-using Contact.Glue.Extensions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
+using CrossCutting.Exceptions;
+using CrossCutting.Extensions;
 using Microsoft.EntityFrameworkCore;
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.

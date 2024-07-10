@@ -12,6 +12,7 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
+// ReSharper disable PossibleNullReferenceException
 
 namespace Contact.Tests.Service.Controllers
 {

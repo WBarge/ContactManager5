@@ -17,9 +17,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Contact.Data.EF.ConcretePocos;
-using Contact.Glue.Extensions;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
+using CrossCutting.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Contact.Data.EF.ConcreteRepos
@@ -105,23 +105,6 @@ namespace Contact.Data.EF.ConcreteRepos
                 person.Phones.Add(phoneToAdd);
                 await _contactDbContext.SaveChangesAsync(cancellationToken);
             }
-        }
-
-        /// <summary>
-        /// Does the number exist.
-        /// </summary>
-        /// <param name="phoneToAdd">The phone to add.</param>
-        /// <param name="phoneId">The phone identifier.</param>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        private bool DoesNumberExist(IPhone phoneToAdd,out Guid? phoneId)
-        {
-            phoneId = Guid.Empty;
-            Phone phone = _contactDbContext.PhoneNumbers.FirstOrDefault(p => p.CountryCode == phoneToAdd.CountryCode &&
-                                                                             p.AreaCode == phoneToAdd.AreaCode &&
-                                                                             p.Number == phoneToAdd.Number &&
-                                                                             p.PhoneType == phoneToAdd.PhoneType);
-            phoneId = phone?.PhoneId;
-            return phone.IsNotEmpty();
         }
 
         /// <summary>

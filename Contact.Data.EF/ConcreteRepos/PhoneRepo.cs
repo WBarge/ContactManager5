@@ -17,6 +17,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Contact.Data.EF.ConcretePocos;
+using Contact.Data.EF.Transformers;
 using Contact.Glue.Interfaces.DTOs;
 using Contact.Glue.Interfaces.Repos;
 
@@ -71,7 +72,7 @@ namespace Contact.Data.EF.ConcreteRepos
             }
 
             await base.InsertAsync(rec);
-            await base.SaveAsync(cancellationToken);
+            await SaveAsync(cancellationToken);
             return rec.PhoneId;
         }
 
