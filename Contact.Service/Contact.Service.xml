@@ -56,11 +56,67 @@
             <param name="personId">The person identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:Contact.Service.Controllers.PersonalEmailController.PostAsync(Contact.Service.Models.Request.EmailRequest)">
+        <member name="M:Contact.Service.Controllers.PersonalEmailController.PostAsync(Contact.Service.Models.Request.AddEmailRequest)">
             <summary>
             insert an email address for a person as an asynchronous operation.
             </summary>
             <param name="request">The request.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalEmailController.DeleteAsync(System.Guid)">
+            <summary>
+            Delete as an asynchronous operation.
+            </summary>
+            <param name="emailId">The email identifier.</param>
+            <returns>A Task representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Contact.Service.Controllers.PersonalPhoneNumberController">
+            <summary>
+            Class PersonalPhoneNumberController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Contact.Service.Controllers.PersonalPhoneNumberController._personalPhoneService">
+            <summary>
+            The personal phone service
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalPhoneNumberController.#ctor(Contact.Glue.Interfaces.Services.IPersonalPhoneService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Service.Controllers.PersonalPhoneNumberController"/> class.
+            </summary>
+            <param name="personalPhoneService">The personal phone service.</param>
+            <exception cref="T:System.ArgumentNullException">personalPhoneService</exception>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalPhoneNumberController.GetAsync(System.Guid)">
+            <summary>
+            Get as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <returns>A Task&lt;IActionResult&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalPhoneNumberController.PostAsync(Contact.Service.Models.Request.PhoneNumberRequest)">
+            <summary>
+            Post as an asynchronous operation.
+            </summary>
+            <param name="request">The request.</param>
+            <returns>A Task&lt;IActionResult&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalPhoneNumberController.DeleteAsync(System.Guid,System.Guid)">
+            <summary>
+            Delete as an asynchronous operation.
+            </summary>
+            <param name="phoneId">The phone identifier.</param>
+            <param name="personId">The person identifier.</param>
+            <returns>A Task&lt;IActionResult&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Contact.Service.Controllers.PersonalPhoneNumberController.SetDefaultNumber(System.Guid,System.Guid)">
+            <summary>
+            Sets the default phone number.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="phoneId">The phone identifier.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:Contact.Service.Controllers.PersonController">
@@ -141,7 +197,7 @@
             This class is responsible for registering an exception handler in the pipeline
             </summary>
         </member>
-        <member name="M:Contact.Service.Middleware.UiExceptionHandlerExtensions.UseUIExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="M:Contact.Service.Middleware.UiExceptionHandlerExtensions.UseUiExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
             Uses the UI exception handler.
             </summary>
@@ -179,24 +235,18 @@
             </summary>
             <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
         </member>
-        <member name="T:Contact.Service.Models.Request.EmailRequest">
+        <member name="T:Contact.Service.Models.Request.AddEmailRequest">
             <summary>
             Class EmailRequest.
             </summary>
         </member>
-        <member name="P:Contact.Service.Models.Request.EmailRequest.EmailId">
-            <summary>
-            Gets or sets the email identifier.
-            </summary>
-            <value>The email identifier.</value>
-        </member>
-        <member name="P:Contact.Service.Models.Request.EmailRequest.PersonId">
+        <member name="P:Contact.Service.Models.Request.AddEmailRequest.PersonId">
             <summary>
             Gets or sets the person identifier.
             </summary>
             <value>The person identifier.</value>
         </member>
-        <member name="P:Contact.Service.Models.Request.EmailRequest.Address">
+        <member name="P:Contact.Service.Models.Request.AddEmailRequest.Address">
             <summary>
             Gets or sets the address.
             </summary>
@@ -224,6 +274,41 @@
             Gets or sets the last name.
             </summary>
             <value>The last name.</value>
+        </member>
+        <member name="T:Contact.Service.Models.Request.PhoneNumberRequest">
+            <summary>
+            Class PhoneNumberRequest.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PhoneNumberRequest.PersonId">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PhoneNumberRequest.AreaCode">
+            <summary>
+            Gets or sets the area code.
+            </summary>
+            <value>The area code.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PhoneNumberRequest.CountryCode">
+            <summary>
+            Gets or sets the country code.
+            </summary>
+            <value>The country code.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PhoneNumberRequest.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>The number.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Request.PhoneNumberRequest.PhoneType">
+            <summary>
+            Gets or sets the type of the phone.
+            </summary>
+            <value>The type of the phone.</value>
         </member>
         <member name="T:Contact.Service.Models.Result.EmailResult">
             <summary>
@@ -292,6 +377,53 @@
             Gets or sets the last name.
             </summary>
             <value>The last name.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PersonResult.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Contact.Service.Models.Result.PersonResult"/> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Contact.Service.Models.Result.PhoneResult">
+            <summary>
+            Class PhoneResult.
+            </summary>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PhoneResult.Id">
+            <summary>
+            Gets or sets the phone identifier.
+            </summary>
+            <value>The phone identifier.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PhoneResult.AreaCode">
+            <summary>
+            Gets or sets the area code.
+            </summary>
+            <value>The area code.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PhoneResult.CountryCode">
+            <summary>
+            Gets or sets the country code.
+            </summary>
+            <value>The country code.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PhoneResult.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>The number.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PhoneResult.PhoneType">
+            <summary>
+            Gets or sets the type of the phone.
+            </summary>
+            <value>The type of the phone.</value>
+        </member>
+        <member name="P:Contact.Service.Models.Result.PhoneResult.Deleted">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Contact.Glue.Interfaces.DTOs.IPhone" /> is deleted.
+            </summary>
+            <value><c>true</c> if deleted; otherwise, <c>false</c>.</value>
         </member>
         <member name="T:Contact.Service.Program">
             <summary>
@@ -389,6 +521,25 @@
             </summary>
             <param name="result">The result.</param>
             <returns>PersonRequest.</returns>
+        </member>
+        <member name="T:Contact.Service.Transformers.PhoneResultTransformer">
+            <summary>
+            Class PhoneResultTransformer.
+            </summary>
+        </member>
+        <member name="M:Contact.Service.Transformers.PhoneResultTransformer.Transform(System.Collections.Generic.IEnumerable{Contact.Glue.Interfaces.DTOs.IPhone})">
+            <summary>
+            Transforms the specified phone numbers.
+            </summary>
+            <param name="phoneNumbers">The phone numbers.</param>
+            <returns>IEnumerable&lt;PhoneResult&gt;.</returns>
+        </member>
+        <member name="M:Contact.Service.Transformers.PhoneResultTransformer.Transform(Contact.Glue.Interfaces.DTOs.IPhone)">
+            <summary>
+            Transforms the specified phone.
+            </summary>
+            <param name="phone">The phone.</param>
+            <returns>PhoneResult.</returns>
         </member>
         <member name="T:Contact.Service.Utilities.RootComposition">
             <summary>

@@ -67,6 +67,71 @@
             <param name="token">The token.</param>
             <returns>Task.</returns>
         </member>
+        <member name="M:Contact.Business.PersonalEmailService.DeleteEmailAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete email as an asynchronous operation.
+            </summary>
+            <param name="emailId">The email identifier.</param>
+            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A Task representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Contact.Business.PersonalPhoneService">
+            <summary>
+            Class PersonalPhoneService.
+            Implements the <see cref="T:Contact.Glue.Interfaces.Services.IPersonalPhoneService" />
+            </summary>
+            <seealso cref="T:Contact.Glue.Interfaces.Services.IPersonalPhoneService" />
+        </member>
+        <member name="F:Contact.Business.PersonalPhoneService._phoneRepo">
+            <summary>
+            The phone repo
+            </summary>
+        </member>
+        <member name="M:Contact.Business.PersonalPhoneService.#ctor(Contact.Glue.Interfaces.Repos.IPersonalPhoneRepo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contact.Business.PersonalPhoneService"/> class.
+            </summary>
+            <param name="phoneRepo">The phone repo.</param>
+            <exception cref="T:System.ArgumentNullException">phoneRepo</exception>
+        </member>
+        <member name="M:Contact.Business.PersonalPhoneService.AddPhoneNumberToAPersonAsync(System.Guid,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Add phone number to a person as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="countryCode">The country code.</param>
+            <param name="areaCode">The area code.</param>
+            <param name="number">The number.</param>
+            <param name="phoneType">Type of the phone.</param>
+            <param name="token"></param>
+            <returns>A Task representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Contact.Business.PersonalPhoneService.GetPhoneNumbersForAPersonAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get phone numbers for a person as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="token"></param>
+            <returns>A Task&lt;IEnumerable`1&gt; representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Contact.Business.PersonalPhoneService.DeletePhoneAsync(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete phone as an asynchronous operation.
+            </summary>
+            <param name="phoneId">The phone identifier.</param>
+            <param name="personId">The person identifier.</param>
+            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A Task representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Contact.Business.PersonalPhoneService.SetDefaultNumberAsync(System.Guid,System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Set default number as an asynchronous operation.
+            </summary>
+            <param name="personId">The person identifier.</param>
+            <param name="phoneId">The phone identifier.</param>
+            <param name="token">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <returns>A Task representing the asynchronous operation.</returns>
+        </member>
         <member name="T:Contact.Business.PersonService">
             <summary>
             Class PersonService.

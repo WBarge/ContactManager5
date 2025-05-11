@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\ContactManager5\Contact.Business\Contact.Business.xml</DocumentationFile>
+    <DocumentationFile>C:\GithubRepos\ContactManager5\Contact.Business\Contact.Business.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="My.CrossCutting.Libraries" Version="1.0.0" />
+    <PackageReference Include="My.CrossCutting.Libraries" Version="1.0.0.1" />
   </ItemGroup>
 
   <ItemGroup>
