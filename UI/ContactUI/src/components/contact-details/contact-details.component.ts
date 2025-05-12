@@ -142,6 +142,13 @@ clickDeletePhoneButton(phone: Phone) {
 
 
 private savePhone(phone: Phone) {
+  let location:number = phone.number.indexOf("-");
+  if (location > 0)
+  {
+    let temp:string = phone.number.substring(0,location);
+    temp = temp.concat(phone.number.substring(location+1));
+    phone.number = temp;
+  }
   this.phoneService.addPhoneNumber(phone).subscribe(
       () => { this.loadPhoneNumbers() });
 }

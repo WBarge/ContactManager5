@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contact.Data.EF", "Contact.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Tests", "Contact.Tests\Contact.Tests.csproj", "{0E552091-FBD7-4192-835C-4DE03841EB89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract.Blazor", "UI\Contract.Blazor\Contract.Blazor.csproj", "{E3BB37E7-1D08-48A3-BA00-A27F8655BB07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0E552091-FBD7-4192-835C-4DE03841EB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E552091-FBD7-4192-835C-4DE03841EB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E552091-FBD7-4192-835C-4DE03841EB89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3BB37E7-1D08-48A3-BA00-A27F8655BB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3BB37E7-1D08-48A3-BA00-A27F8655BB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3BB37E7-1D08-48A3-BA00-A27F8655BB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3BB37E7-1D08-48A3-BA00-A27F8655BB07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
