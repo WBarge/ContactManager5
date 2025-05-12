@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="My.CrossCutting.Libraries" Version="1.0.0.1" />
+    <PackageReference Include="My.CrossCutting.Libraries" Version="1.0.0.2" />
   </ItemGroup>
 
   <ItemGroup>

@@ -88,7 +88,7 @@ namespace Contact.Tests.Data.Repos
                     await sut.InsertAsync(phone);
                     phone.Should().NotBeNull();
 
-                    context.PhoneNumbers.ToList().Should().HaveCountGreaterOrEqualTo(2);
+                    context.PhoneNumbers.ToList().Should().HaveCountGreaterThan(2);
                 }
             }
         }

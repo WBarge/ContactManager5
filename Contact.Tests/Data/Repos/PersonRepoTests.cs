@@ -72,7 +72,7 @@ namespace Contact.Tests.Data.Repos
                     PersonRepo sut = new PersonRepo(context);
                     IEnumerable<IPerson> result = await sut.GetAllAsync();
                     result.Should().NotBeNull();
-                    result.Should().HaveCountGreaterOrEqualTo(1);
+                    result.Should().HaveCountGreaterThanOrEqualTo(1);
                 }
             }
         }
@@ -121,7 +121,7 @@ namespace Contact.Tests.Data.Repos
 
                     Guid result = await sut.InsertAsync(newPerson);
                     result.Should().NotBeEmpty();
-                    context.People.Should().HaveCountGreaterOrEqualTo(2);
+                    context.People.Should().HaveCountGreaterThanOrEqualTo(2);
                 }
             }
         }
